@@ -14,6 +14,19 @@
   text-align: right;
 }
 
+/* #p1turn{
+  text-align: center;
+}
+
+#p2turn{
+  text-align: center;
+} */
+
+#player-row {
+  text-align: center;
+  padding-top: 20px;
+}
+
 .card {
   width: 300px;
   text-align: center;

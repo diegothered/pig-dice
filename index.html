@@ -9,51 +9,58 @@
 </head>
 <body>
   <div class="container">
-  <form id="players">
-    <div class="form-group">
-      <label for="player1">Player1 Name:</label>
-      <input type="text" class="form-control" id="player1" placeholder="player 1 name">
+    <form id="players">
+      <div class="form-group">
+        <label for="player1">Player1 Name:</label>
+        <input type="text" class="form-control" id="player1" placeholder="player 1 name">
+      </div>
+      <div class="form-group">
+        <label for="player2">Player2 Name:</label>
+        <input type="text" class="form-control" id="player2" placeholder="player 2 name">
+      </div>
+      <button type="submit" class="btn btn-primary">Enter</button>
+    </form>
+    <div class="game-area">
+      <div class="row">
+        <div class="col-lg-6" id="player-1-info">
+          <h3><span id="p1name"></span>: <span id="p1score"></span></h3>
+        </div>
+        <div class="col-lg-6" id = "player-2-info">
+          <h3><span id="p2name"></span>: <span id="p2score"></span></h3>
+        </div>
+      </div>
+      <div class="card" id="dice-roll">
+        <div class="card-header">
+          <h3 id="current-roll"></h3>
+        </div>
+        <div class="card-body">
+          <h2 id="turn-score">Number<h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6" id="roll">
+            <button type="button" id="p1-roll-button"class="btn btn-danger">Roll</button>
+            <button type="button" id="p2-roll-button"class="btn btn-info">Roll</button>
+          </div>
+          <div class="col-lg-6" id="pass-button">
+            <button type="button" id="p1pass" class="btn btn-info">Pass</button>
+            <button type="button" id="p2pass" class="btn btn-warning">Pass</button>
+          </div>
+        </div>
+        <div class="row" id="player-row">
+          <div class="col-lg-12">
+          <h4><span id="p1turn"></span></h4>
+          <h4><span id="p2turn"></span></h4>
+        </div>
+      </div>
+      </div>
+      <div class = "winner">
+        <div class="jumbotron">
+          <h1><span id="winner-name"></span> is the winner!</h1>
+          <button id="reset" type="button" class="btn btn-success">Play again</button>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="player2">Player2 Name:</label>
-      <input type="text" class="form-control" id="player2" placeholder="player 2 name">
-    </div>
-    <button type="submit" class="btn btn-primary">Enter</button>
-  </form>
-  <div class="game-area">
-    <div class="row">
-      <div class="col-lg-6" id="player-1-info">
-        <h3><span id="p1name"></span>: <span id="p1score"></span></h3>
-      </div>
-      <div class="col-lg-6" id = "player-2-info">
-        <h3><span id="p2name"></span>: <span id="p2score"></span></h3>
-      </div>
-    </div>
-    <div class="card" id="dice-roll">
-      <div class="card-header">
-        <h3 id="current-roll"></h3>
-      </div>
-      <div class="card-body">
-        <h2 id="turn-score">Number<h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-6" id="roll">
-        <button type="button" id="roll-button"class="btn btn-danger">Roll</button>
-      </div>
-      <div class="col-lg-6" id="pass-button">
-        <button type="button" id="p1pass" class="btn btn-info">Pass</button>
-        <button type="button" id="p2pass" class="btn btn-warning">Pass</button>
-      </div>
-    </div>
-  </div>
-    <div class = "winner">
-      <div class="jumbotron">
-        <h1><span id="winner-name"></span> is the winner!</h1>
-        <button type="button" class="btn btn-success">Play again</button>
-      </div>
-    </div>
-  </div>
 
-</body>
-</html>
+  </body>
+  </html>
