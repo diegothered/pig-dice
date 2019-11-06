@@ -50,3 +50,7 @@ form {
 .game-area {
   display: none;
 }
+
+#players {
+  display: none
+}
