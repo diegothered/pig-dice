@@ -1,13 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/jquery-3.4.1.js"></script>
-    <script src="js/scripts.js" ></script>
-    <title></title>
-  </head>
-  <body>
+<head>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/jquery-3.4.1.js"></script>
+  <script src="js/scripts.js" ></script>
+  <title>Pig Dice (oink oink)</title>
+</head>
+<body>
+  <div class="container">
+  <form>
+    <div class="form-group">
+      <label for="player1">Player1 Name:</label>
+      <input type="text" class="form-control" id="player1" placeholder="player 1 name">
+    </div>
+    <div class="form-group">
+      <label for="player2">Player2 Name:</label>
+      <input type="text" class="form-control" id="player2" placeholder="player 2 name">
+    </div>
+    <button type="button" class="btn btn-primary">Enter</button>
+  </form>
+  <div class="game-area">
+    <div class="row">
+      <div class="col-lg-6" id="player-1-info">
+        <h3>P1Name: Score</h3>
+      </div>
+      <div class="col-lg-6" id = "player-2-info">
+        <h3>P2Name: Score</h3>
+      </div>
+    </div>
+    <div class="card" id="dice-roll">
+      <div class="card-header">
+        <h3>Dice Roll:</h3>
+      </div>
+      <div class="card-body">
+        <h2>Number<h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6" id="roll-button">
+        <button type="button" class="btn btn-danger">Roll</button>
+      </div>
+      <div class="col-lg-6" id="pass-button">
+        <button type="button" class="btn btn-info">Pass</button>
 
-  </body>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</body>
 </html>

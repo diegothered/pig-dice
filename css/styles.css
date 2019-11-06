@@ -1,0 +1,22 @@
+#player-1-info {
+  text-align: left;
+}
+
+#player-2-info {
+  text-align: right;
+}
+
+#dice-roll {
+  text-align: center;
+}
+
+#roll-button {
+  text-align: right;
+}
+
+.card {
+  width: 300px;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 20px;
+}
