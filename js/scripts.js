@@ -1,16 +1,16 @@
 function Players (score1, score2){
-  this.score1 = 0,
-  this.score2 = 0
+  this.score1 = score1,
+  this.score2 = score2
 }
 var dice = 0
 var turnScore = 0
 
 Players.prototype.addScore1 = function(turnScore) {
-  turnScore += this.score1
+  this.score1 += turnScore
 }
 
 Players.prototype.addScore2 = function(turnScore) {
-  turnScore += this.score2
+ this.score2 += turnScore
 }
 
 var currentScore = function() {
@@ -29,9 +29,9 @@ var roll = function(){
 
 
 $(document).ready(function(){
+  var players = new Players(0,0)
   $("#players").submit(function(event) {
     event.preventDefault ();
-    var players = new Players(0, 0)
     var player1 = $("#player1").val();
     var player2 = $("#player2").val();
     $("#players").hide();
@@ -50,7 +50,36 @@ $(document).ready(function(){
     currentScore();
     console.log(turnScore);
     $("#turn-score").text(turnScore);
-
+  })
+  $("#p1pass").click(function(){
+    players.addScore1(turnScore);
+    if (players.score1 >= 10){
+      $(".game-area").hide();
+      $(".winner").show();
+      $("#winner-name").text($("#player1").val());
+    }
+    $("#p1pass").hide();
+    $("#p2pass").show();
+    $("#p1score").text(players.score1);
+    dice = 0
+    turnScore = 0
+    $("#current-roll").text(dice);
+    $("#turn-score").text(dice);
+  })
+  $("#p2pass").click(function(){
+    players.addScore2(turnScore);
+    if (players.score2 >= 10){
+      $(".game-area").hide();
+      $(".winner").show();
+      $("#winner-name").text($("#player2").val());
+    }
+    $("#p2pass").hide();
+    $("#p1pass").show();
+    $("#p2score").text(players.score2);
+    dice = 0
+    turnScore = 0
+    $("#current-roll").text(dice);
+    $("#turn-score").text(dice);
   })
 
 });
