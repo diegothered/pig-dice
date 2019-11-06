@@ -3,20 +3,21 @@ function Players (score1, score2){
   this.score2 = 0
 }
 var dice = 0
+var turnScore = 0
 
-Players.prototype.addScore1 = function(dice) {
-  if (dice === 1) {
-    this.score1 = 0
-  } else {
-    this.score1 += dice
-  }
+Players.prototype.addScore1 = function(turnScore) {
+  turnScore += this.score1
 }
 
-Players.prototype.addScore2 = function(dice) {
+Players.prototype.addScore2 = function(turnScore) {
+  turnScore += this.score2
+}
+
+var currentScore = function() {
   if (dice === 1) {
-    this.score2 = 0
+    turnScore = 0
   } else {
-    this.score2 += dice
+    turnScore = turnScore += dice
   }
 }
 
@@ -28,10 +29,28 @@ var roll = function(){
 
 
 $(document).ready(function(){
-  var players = new Players(0, 0)
-  roll()
-  console.log(dice);
-  players.addScore1(dice);
-  console.log(players.score1);
+  $("#players").submit(function(event) {
+    event.preventDefault ();
+    var players = new Players(0, 0)
+    var player1 = $("#player1").val();
+    var player2 = $("#player2").val();
+    $("#players").hide();
+    $("#p2pass").hide();
+    $(".game-area").show();
+    $("#p1name").text(player1);
+    $("#p2name").text(player2);
+    $("#p1score").text(players.score1);
+    $("#p2score").text(players.score2);
+    $("#current-roll").text(dice);
+    console.log(turnScore);
+  })
+  $("#roll-button").click(function() {
+    roll()
+    $("#current-roll").text(dice);
+    currentScore();
+    console.log(turnScore);
+    $("#turn-score").text(turnScore);
+
+  })
 
 });

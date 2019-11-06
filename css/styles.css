@@ -10,7 +10,7 @@
   text-align: center;
 }
 
-#roll-button {
+#roll {
   text-align: right;
 }
 
@@ -19,4 +19,21 @@
   text-align: center;
   margin: auto;
   margin-bottom: 20px;
+}
+
+.winner {
+  text-align: center;
+  padding-top: 20px;
+  display : none;
+}
+
+form {
+  width: 300px;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.game-area {
+  display: none;
 }
