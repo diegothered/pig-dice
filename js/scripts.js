@@ -12,7 +12,7 @@ Players.prototype.addScore1 = function(turnScore) {
 }
 
 Players.prototype.addScore2 = function(turnScore) {
- this.score2 += turnScore
+  this.score2 += turnScore
 }
 
 var currentScore = function() {
@@ -43,7 +43,7 @@ var aiPass = function() {
   }
   $("#p2turn").hide();
   $("#p1turn").show();
-  $("#p1-roll-button").show();
+  $("#single-roll-button").show();
   $("#single-player-pass").show();
   $("#p2score").text(players.score2);
   dice = 0
@@ -62,7 +62,6 @@ var singlePlayerPass = function(){
   }
   $("#p1turn").hide();
   $("#p2turn").show();
-  $("#p1-roll-button").hide();
   $("#single-player-pass").hide();
   $("#p1score").text(players.score1);
   dice = 0
@@ -70,6 +69,22 @@ var singlePlayerPass = function(){
   $("#current-roll").text(dice);
   $("#turn-score").text(dice);
   isAiTurn = true
+  while(isAiTurn === true){
+    console.log(isAiTurn);
+    roll();
+    if (dice === 1){
+      turnScore = 0
+      aiPass();
+    } else {
+      currentScore();
+      if (turnScore >= 20) {
+        console.log("ai if")
+        aiPass();
+
+    }
+    }
+  }
+
 }
 
 var p1Pass = function () {
@@ -123,7 +138,7 @@ $(document).ready(function(){
     $("#p1score").text(players.score1);
     $("#p2score").text(players.score2);
     $("#single-player-pass").show();
-    $("#p1-roll-button").show();
+    $("#p1-roll-button").hide();
     $("#p2pass").hide();
     $("#p2-roll-button").hide();
     $(".game-area").show()
@@ -131,6 +146,7 @@ $(document).ready(function(){
   $("#player2mode").click(function(){
     $(".game-select").hide();
     $("#single-player-pass").hide();
+    $("#single-roll-button").hide();
     $("#players").show();
   })
   $("#players").submit(function(event) {
@@ -154,6 +170,17 @@ $(document).ready(function(){
 
     console.log(turnScore);
   })
+  $("#single-roll-button").click(function(){
+    roll()
+    if (dice === 1){
+      turnScore = 0
+      singlePlayerPass();
+    }
+    $("#current-roll").text(dice);
+    currentScore();
+    console.log(turnScore);
+    $("#turn-score").text(turnScore);
+  });
   $("#p1-roll-button").click(function() {
     roll()
     if (dice === 1){
@@ -178,7 +205,6 @@ $(document).ready(function(){
   })
   $("#single-player-pass").click(function(){
     singlePlayerPass();
-    console.log(isAiTurn);
   })
   $("#p1pass").click(function(){
     p1Pass();
