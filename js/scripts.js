@@ -39,7 +39,7 @@ var aiPass = function() {
   if (players.score2 >= 100){
     $(".game-area").hide();
     $(".winner").show();
-    $("#winner-name").text($("#player2").val());
+    $("#winner-name").text("The Computer");
   }
   $("#p2turn").hide();
   $("#p1turn").show();
@@ -58,7 +58,7 @@ var singlePlayerPass = function(){
   if (players.score1 >= 100){
     $(".game-area").hide();
     $(".winner").show();
-    $("#winner-name").text($("#player1").val());
+    $("#winner-name").text("Player 1")
   }
   $("#p1turn").hide();
   $("#p2turn").show();
@@ -69,7 +69,7 @@ var singlePlayerPass = function(){
   $("#current-roll").text(dice);
   $("#turn-score").text(dice);
   isAiTurn = true
-  while(isAiTurn === true){
+  while(isAiTurn === true){ //AI works, early stages, consider adding more for complexity.
     console.log(isAiTurn);
     roll();
     if (dice === 1){
@@ -77,11 +77,15 @@ var singlePlayerPass = function(){
       aiPass();
     } else {
       currentScore();
-      if (turnScore >= 20) {
-        console.log("ai if")
-        aiPass();
-
-    }
+      console.log(players.score2 + turnScore);
+    }if (players.score2 + turnScore >= 100) {
+      aiPass();
+    }else if (players.score2 < 70 && turnScore > 20){
+      console.log("p2 score less than 70")
+      aiPass();
+    } else if (players.score1 < 80 && turnScore > 20) {
+      console.log("p1 score less than 80")
+      aiPass();
     }
   }
 
@@ -214,7 +218,7 @@ $(document).ready(function(){
   })
   $("#reset").click(function(){
     $(".winner").hide();
-    $("#players").show();
+    $(".game-select").show();
     dice = 0
     turnScore = 0
     players.score1 = 0
